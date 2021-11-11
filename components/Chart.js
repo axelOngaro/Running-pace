@@ -9,28 +9,45 @@ const paceRange = {
   paceSecMax: 40,
 };
 
-const minutesToSec = ({ paceMinMin, paceMinMAx, paceSecMin, paceSecMax }) => {
-  let start = paceMinMin * 60 + paceSecMin;
-  let stop = paceMinMAx * 60 + paceSecMax;
-  return [start, stop];
-};
+// const minutesToSec = ({ paceMinMin, paceMinMAx, paceSecMin, paceSecMax }) => {
+//   let start = paceMinMin * 60 + paceSecMin;
+//   let stop = paceMinMAx * 60 + paceSecMax;
+//   return [start, stop];
+// };
 
-const startStopArray = minutesToSec(paceRange);
+// const range = (start, stop, step = 10) => {
+//   let arraySec = [];
+//   let i = start;
+//   while (i <= stop) {
+//     arraySec.push(i);
+//     i += step;
+//   }
+//   return arraySec;
+// };
 
-const range = (start, stop, step = 10) => {
-  let arraySec = [];
-  let i = start;
-  while (i <= stop) {
-    arraySec.push(i);
-    i += step;
-  }
-  return arraySec;
-};
+// const chartArray = range(startStopArray[0], startStopArray[1], 10);
 
-const chartArray = range(startStopArray[0], startStopArray[1], 10);
-console.log(chartArray);
+function Chart({ paceMinutesMin, paceMinutesMax }) {
+  const minutesToSec = (paceMinutesMin, paceMinutesMax, paceSecMin, paceSecMax) => {
+    let start = paceMinutesMin * 60 + paceSecMin;
+    let stop = paceMinutesMax * 60 + paceSecMax;
+    return [start, stop];
+  };
+  const range = (start, stop, step = 10) => {
+    let arraySec = [];
+    let i = start;
+    while (i <= stop) {
+      arraySec.push(i);
+      i += step;
+    }
+    return arraySec;
+  };
 
-function Chart() {
+  const startStopArray = minutesToSec(paceMinutesMin, paceMinutesMax, 10, 20);
+  console.log(startStopArray);
+
+  const chartArray = range(startStopArray[0], startStopArray[1], 10);
+
   return (
     <table className={styles.chart__table}>
       <ChartIndexes distances={distances} />

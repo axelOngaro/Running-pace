@@ -18,8 +18,12 @@ function Chart({ paceMinutesMin, paceMinutesMax, distances, setDistance }) {
     return arraySec;
   };
 
+  //event handler
+  const onRowClickHandler = () => {
+    console.log('perrych');
+  };
+
   const startStopArray = minutesToSec(paceMinutesMin, paceMinutesMax, 10, 20);
-  console.log(startStopArray);
 
   const chartArray = range(startStopArray[0], startStopArray[1], 10);
 
@@ -35,9 +39,9 @@ function Chart({ paceMinutesMin, paceMinutesMax, distances, setDistance }) {
         return (
           <Row
             distances={distances}
-            paceMin={Math.floor(pace / 60)}
-            paceSec={pace % 60}
+            pace={pace}
             key={pace}
+            onRowClickHandler={onRowClickHandler}
           />
         );
       })}

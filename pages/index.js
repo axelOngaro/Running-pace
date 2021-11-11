@@ -14,6 +14,7 @@ function Home() {
   const [paceMin, setPaceMin] = useState(400);
   const [paceMax, setPaceMax] = useState(1200);
   const [step, setStep] = useState(11);
+  const [metric, setMetric] = useState('k');
 
   return (
     <div>
@@ -27,13 +28,19 @@ function Home() {
         step={step}
         setStep={setStep}
       />
-      <Column distance={distance} setDistance={setDistance} />
+      <Column
+        distance={distance}
+        setDistance={setDistance}
+        metric={metric}
+        setMetric={setMetric}
+      />
       <Chart
         paceMin={paceMin}
         paceMax={paceMax}
         distances={distance}
         setDistance={setDistance}
         step={step}
+        metric={metric}
       />
     </div>
   );

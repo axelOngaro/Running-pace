@@ -1,7 +1,7 @@
 import { Button as btton } from '@chakra-ui/button';
 import React from 'react';
 
-function ChartIndexes({ distances, setDistance }) {
+function ChartIndexes({ distances, setDistance, metric }) {
   const onClickHandler = (e) => {
     const newDistances = distances.filter((item) => item !== parseInt(e.target.value));
     setDistance(newDistances);
@@ -16,7 +16,7 @@ function ChartIndexes({ distances, setDistance }) {
       {distances.map((distance) => {
         return (
           <th key={distance}>
-            {distance}k{' '}
+            {distance} {metric}{' '}
             <button onClick={onClickHandler} value={distance}>
               x
             </button>

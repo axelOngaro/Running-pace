@@ -1,11 +1,15 @@
 import styles from '../styles/Column.module.scss';
 
-function Column({ distance, setDistance }) {
+function Column({ distance, setDistance, metric, setMetric }) {
   const distanceHandler = () => {
     const distanceValue = parseInt(document.getElementById('inputDistance').value);
     if (distanceValue <= 0) {
       alert('try again');
     } else return setDistance([...distance, distanceValue]);
+  };
+
+  const metricChangeHandler = (e) => {
+    setMetric(e.target.value);
   };
 
   return (
@@ -14,12 +18,11 @@ function Column({ distance, setDistance }) {
       <label htmlFor="distance">add a distance</label>
       <button onClick={distanceHandler}>+</button>
       <label htmlFor="distance">Select a distance</label>
-      <input type="distance" list="distance-list" />
-      <datalist id="distance-list">
-        <option value="m" />
-        <option value="km" />
-        <option value="miles" />
-      </datalist>
+      <select id="distance-list" onChange={metricChangeHandler}>
+        <option value="km"> Km</option>
+        <option value="m">meters</option>
+        <option value="miles">miles</option>
+      </select>
     </div>
   );
 }

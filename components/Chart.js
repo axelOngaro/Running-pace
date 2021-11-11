@@ -1,8 +1,9 @@
 import styles from '../styles/Chart.module.scss';
 import Row from '../components/Row';
 import ChartIndexes from './ChartIndexes';
+import { useRef, useEffect } from 'react';
 
-function Chart({ paceMin, paceMax, distances, setDistance, step }) {
+function Chart({ paceMin, paceMax, distances, setDistance, step, metric }) {
   const range = (start, stop, step) => {
     let arraySec = [];
     let i = start;
@@ -14,9 +15,6 @@ function Chart({ paceMin, paceMax, distances, setDistance, step }) {
   };
 
   //event handler
-  const onRowClickHandler = () => {
-    console.log('perrych');
-  };
 
   const chartArray = range(paceMin, paceMax, step);
 
@@ -26,17 +24,11 @@ function Chart({ paceMin, paceMax, distances, setDistance, step }) {
         distances={distances.sort(function (a, b) {
           return a - b;
         })}
+        metric={metric}
         setDistance={setDistance}
       />
       {chartArray.map((pace) => {
-        return (
-          <Row
-            distances={distances}
-            pace={pace}
-            key={pace}
-            onRowClickHandler={onRowClickHandler}
-          />
-        );
+        return <Row distances={distances} pace={pace} key={pace} />;
       })}
     </table>
   );

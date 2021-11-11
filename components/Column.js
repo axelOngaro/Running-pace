@@ -2,7 +2,10 @@ import styles from '../styles/Column.module.scss';
 
 function Column({ distance, setDistance }) {
   const distanceHandler = () => {
-    setDistance([...distance, parseInt(document.getElementById('inputDistance').value)]);
+    const distanceValue = parseInt(document.getElementById('inputDistance').value);
+    if (distanceValue <= 0) {
+      alert('try again');
+    } else return setDistance([...distance, distanceValue]);
   };
   console.log(distance);
   return (

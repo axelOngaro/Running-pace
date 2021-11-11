@@ -1,0 +1,23 @@
+.rangeSelector {
+  min-height: 10vh;
+  width: 100%;
+  background-color: red;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em 0;
+  &__sliders {
+    padding: 2em 0;
+    input {
+      margin: 0 1em;
+    }
+  }
+  &__inputs {
+    input {
+      margin: 0 0.5em;
+      width: 3em;
+    }
+  }
+}

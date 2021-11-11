@@ -11,6 +11,12 @@ function PaceSelector() {
         <label htmlFor="seconds">Seconds</label>
         <input type="number" name="seconds" />
       </div>
+      <label htmlFor="metrics">Select a metric</label>
+      <input type="metrics" list="metrics-list" />
+      <datalist id="metrics-list">
+        <option value="km.min" />
+        <option value="miles.min" />
+      </datalist>
     </div>
   );
 }

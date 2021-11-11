@@ -1,9 +1,9 @@
 import styles from '../styles/Chart.module.scss';
 import Row from '../components/Row';
 import ChartIndexes from './ChartIndexes';
-const distances = [1, 3, 10, 21, 42];
+const distances = [1, 3, 5, 10, 21, 42];
 const paceRange = {
-  paceMinMin: 3,
+  paceMinMin: 2,
   paceMinMAx: 4,
   paceSecMin: 10,
   paceSecMax: 40,

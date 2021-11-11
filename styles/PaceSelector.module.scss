@@ -1,0 +1,16 @@
+.paceSelector {
+  height: 10vh;
+  width: 100%;
+  background-color: yellow;
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__minutes,
+  &__seconds {
+    padding: 1em 1em;
+    label {
+      padding: 0 1em;
+    }
+  }
+}

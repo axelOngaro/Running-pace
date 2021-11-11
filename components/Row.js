@@ -1,16 +1,23 @@
-import { durationCalculator, kmhToMph, roundNumber } from '../utils/functions';
+import {
+  roundNumber,
+  paceToKmh,
+  paceToMphConverter,
+  paceKmToPaceM,
+  paceToTime,
+} from '../utils/functions';
 
-function Row({ speed, distances }) {
+function Row({ paceMin, paceSec, distances }) {
   return (
     <tr>
-      <th>{speed}</th>
-      <th>{roundNumber(kmhToMph(speed), 2)}</th>
-      <th>{}</th>
+      <th>{roundNumber(paceToKmh(paceMin, paceSec), 2)} kph</th>
+      <th>{roundNumber(paceToMphConverter(paceMin, paceSec), 2)} mph</th>
+      <th>{`${paceMin}min ${paceSec} sec `}</th>
+      <th>{paceKmToPaceM(paceMin, paceSec)}</th>
 
       {distances.map((distance) => {
         return (
-          <th key={durationCalculator(distance, speed)}>
-            {durationCalculator(distance, speed)}
+          <th key={paceToTime(paceMin, paceSec, distance)}>
+            {paceToTime(paceMin, paceSec, distance)}
           </th>
         );
       })}

@@ -13,6 +13,13 @@ function RangeSelector({ paceMin, paceMax, setPaceMin, setPaceMax, step, setStep
     setStep(parseInt(e.target.value));
   };
 
+  const stepClickHandlerMinus = (e) => {
+    setStep(--step);
+  };
+  const stepClickHandlerPlus = (e) => {
+    setStep(++step);
+  };
+
   return (
     <div className={styles.rangeSelector}>
       <div className={styles.rangeSelector__sliders}>
@@ -48,9 +55,10 @@ function RangeSelector({ paceMin, paceMax, setPaceMin, setPaceMax, step, setStep
               name="minMinPace"
               id=""
               value={Math.floor(paceMin / 60)}
+              readOnly
             />
             <label htmlFor="minSecPace">minSecPace</label>
-            <input type="number" name="minSecPace" id="" value={paceMin % 60} />
+            <input type="number" name="minSecPace" id="" value={paceMin % 60} readOnly />
           </div>
           <div>
             <label htmlFor="maxMinPace">maxMinPace</label>
@@ -59,13 +67,16 @@ function RangeSelector({ paceMin, paceMax, setPaceMin, setPaceMax, step, setStep
               name="maxMinPace"
               id=""
               value={Math.floor(paceMax / 60)}
+              readOnly
             />
             <label htmlFor="maxSecPace">maxSecPace</label>
-            <input type="number" name="maxSecPace" id="" value={paceMax % 60} />
+            <input type="number" name="maxSecPace" id="" value={paceMax % 60} readOnly />
           </div>
           <div>
+            <button onClick={stepClickHandlerMinus}>-</button>
             <input type="number" name="step" value={step} onChange={stepHandler}></input>
-            <label htmlFor="step"></label>
+            <button onClick={stepClickHandlerPlus}>+</button>
+            <label htmlFor="step">Step</label>
           </div>
         </div>
       </div>

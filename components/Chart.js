@@ -8,6 +8,7 @@ const paceRange = {
   paceSecMin: 10,
   paceSecMax: 40,
 };
+
 const minutesToSec = ({ paceMinMin, paceMinMAx, paceSecMin, paceSecMax }) => {
   let start = paceMinMin * 60 + paceSecMin;
   let stop = paceMinMAx * 60 + paceSecMax;

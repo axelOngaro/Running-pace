@@ -45,10 +45,22 @@ function RangeSelector({
       </div>
       <div className={styles.rangeSelector__inputs}>
         <label htmlFor="minPace">minPace</label>
-        <input type="number" name="minPace" id="" />
+        <input
+          type="number"
+          name="minPace"
+          id=""
+          value={paceMinutesMin}
+          onChange={paceMinutesMinHandler}
+        />
         <input type="number" name="secMinPace" />
         <label htmlFor="maxPace">maxPace</label>
-        <input type="number" name="maxPace" id="" />
+        <input
+          type="number"
+          name="maxPace"
+          id=""
+          value={paceMinutesMax}
+          onChange={paceMinutesMaxHandler}
+        />
         <input type="number" name="secMaxPace" />
       </div>
     </div>

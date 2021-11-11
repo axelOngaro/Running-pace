@@ -8,24 +8,41 @@ const paceRange = {
   paceSecMin: 10,
   paceSecMax: 40,
 };
+const minutesToSec = ({ paceMinMin, paceMinMAx, paceSecMin, paceSecMax }) => {
+  let start = paceMinMin * 60 + paceSecMin;
+  let stop = paceMinMAx * 60 + paceSecMax;
+  return [start, stop];
+};
+
+const startStopArray = minutesToSec(paceRange);
 
 const range = (start, stop, step = 10) => {
   let arraySec = [];
   let i = start;
-  while (i !== stop) {
+  while (i <= stop) {
     arraySec.push(i);
     i += step;
   }
   return arraySec;
 };
 
+const chartArray = range(startStopArray[0], startStopArray[1], 10);
+console.log(chartArray);
+
 function Chart() {
   return (
     <table className={styles.chart__table}>
       <ChartIndexes distances={distances} />
-
-      <Row distances={distances} paceMin={3} paceSec={30} />
-      <Row distances={distances} paceMin={3} paceSec={40} />
+      {chartArray.map((pace) => {
+        return (
+          <Row
+            distances={distances}
+            paceMin={Math.floor(pace / 60)}
+            paceSec={pace % 60}
+            key={pace}
+          />
+        );
+      })}
     </table>
   );
 }

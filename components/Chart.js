@@ -2,7 +2,7 @@ import styles from '../styles/Chart.module.scss';
 import Row from '../components/Row';
 import ChartIndexes from './ChartIndexes';
 
-function Chart({ paceMinutesMin, paceMinutesMax, distances }) {
+function Chart({ paceMinutesMin, paceMinutesMax, distances, setDistance }) {
   const minutesToSec = (paceMinutesMin, paceMinutesMax, paceSecMin, paceSecMax) => {
     let start = paceMinutesMin * 60 + paceSecMin;
     let stop = paceMinutesMax * 60 + paceSecMax;
@@ -29,6 +29,7 @@ function Chart({ paceMinutesMin, paceMinutesMax, distances }) {
         distances={distances.sort(function (a, b) {
           return a - b;
         })}
+        setDistance={setDistance}
       />
       {chartArray.map((pace) => {
         return (

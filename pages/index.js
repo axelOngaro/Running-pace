@@ -37,6 +37,7 @@ function Home() {
         paceSecondsMin={paceSecondsMin}
         paceSecondsMax={paceSecondsMax}
         distances={distance}
+        setDistance={setDistance}
       />
     </div>
   );

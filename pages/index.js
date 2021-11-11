@@ -6,6 +6,7 @@ import PaceSelector from '../components/PaceSelector';
 import RangeSelector from '../components/RangeSelector';
 
 import { useState } from 'react';
+import Column from '../components/Column';
 
 function Home() {
   //state
@@ -13,6 +14,7 @@ function Home() {
   const [paceMinutesMax, setPaceMinutesMax] = useState(5);
   const [paceSecondsMin, setPaceSecondsMin] = useState(10);
   const [paceSecondsMax, setPaceSecondsMax] = useState(30);
+  const [distance, setDistance] = useState([1, 3, 21, 42]);
 
   return (
     <div>
@@ -28,11 +30,13 @@ function Home() {
         setPaceSecondsMin={setPaceSecondsMin}
         setPaceSecondsMax={setPaceSecondsMax}
       />
+      <Column distance={distance} setDistance={setDistance} />
       <Chart
         paceMinutesMin={paceMinutesMin}
         paceMinutesMax={paceMinutesMax}
         paceSecondsMin={paceSecondsMin}
         paceSecondsMax={paceSecondsMax}
+        distances={distance}
       />
     </div>
   );

@@ -1,23 +1,17 @@
 import styles from '../styles/RangeSelector.module.scss';
+import { paceToTime } from '../utils/functionsSec';
 
-function RangeSelector({
-  paceMinutesMin,
-  paceMinutesMax,
-  paceSecondsMin,
-  paceSecondsMax,
-  setPaceMinutesMin,
-  setPaceMinutesMax,
-  setPaceSecondsMin,
-  setPaceSecondsMax,
-}) {
-  const paceMinutesMinHandler = (e) => {
-    setPaceMinutesMin(e.target.value);
+function RangeSelector({ paceMin, paceMax, setPaceMin, setPaceMax, step, setStep }) {
+  const paceMinHandler = (e) => {
+    setPaceMin(parseInt(e.target.value));
   };
-  const paceMinutesMaxHandler = (e) => {
-    setPaceMinutesMax(e.target.value);
+  const paceMaxHandler = (e) => {
+    setPaceMax(parseInt(e.target.value));
   };
 
-  console.log(paceMinutesMax, paceMinutesMin);
+  const stepHandler = (e) => {
+    setStep(parseInt(e.target.value));
+  };
 
   return (
     <div className={styles.rangeSelector}>
@@ -27,41 +21,53 @@ function RangeSelector({
           name="min"
           id=""
           min="0"
-          max="11"
-          value={paceMinutesMin}
-          onChange={paceMinutesMinHandler}
+          max="1000"
+          value={paceMin}
+          onChange={paceMinHandler}
         />
         <label htmlFor="min">Min pace</label>
+        <div>{paceToTime(paceMin, 1)}</div>
         <input
           type="range"
           name="max"
           id=""
-          min="0"
-          max="11"
-          value={paceMinutesMax}
-          onChange={paceMinutesMaxHandler}
+          min="1001"
+          max="2000"
+          value={paceMax}
+          onChange={paceMaxHandler}
         />
         <label htmlFor="max">Max pace</label>
+        <div>{paceToTime(paceMax, 1)}</div>
       </div>
       <div className={styles.rangeSelector__inputs}>
-        <label htmlFor="minPace">minPace</label>
-        <input
-          type="number"
-          name="minPace"
-          id=""
-          value={paceMinutesMin}
-          onChange={paceMinutesMinHandler}
-        />
-        <input type="number" name="secMinPace" />
-        <label htmlFor="maxPace">maxPace</label>
-        <input
-          type="number"
-          name="maxPace"
-          id=""
-          value={paceMinutesMax}
-          onChange={paceMinutesMaxHandler}
-        />
-        <input type="number" name="secMaxPace" />
+        <div>
+          <div>
+            <label htmlFor="minMinPace">minMinPace</label>
+            <input
+              type="number"
+              name="minMinPace"
+              id=""
+              value={Math.floor(paceMin / 60)}
+            />
+            <label htmlFor="minSecPace">minSecPace</label>
+            <input type="number" name="minSecPace" id="" value={paceMin % 60} />
+          </div>
+          <div>
+            <label htmlFor="maxMinPace">maxMinPace</label>
+            <input
+              type="number"
+              name="maxMinPace"
+              id=""
+              value={Math.floor(paceMax / 60)}
+            />
+            <label htmlFor="maxSecPace">maxSecPace</label>
+            <input type="number" name="maxSecPace" id="" value={paceMax % 60} />
+          </div>
+          <div>
+            <input type="number" name="step" value={step} onChange={stepHandler}></input>
+            <label htmlFor="step"></label>
+          </div>
+        </div>
       </div>
     </div>
   );

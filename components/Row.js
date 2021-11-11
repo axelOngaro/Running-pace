@@ -1,11 +1,3 @@
-// import {
-//   roundNumber,
-//   paceToKmh,
-//   paceToMphConverter,
-//   paceKmToPaceM,
-//   paceToTime,
-// } from '../utils/functions';
-
 import {
   roundNumber,
   paceSecToKmh,
@@ -23,8 +15,6 @@ function Row({ pace, distances, onRowClickHandler }) {
   const onClickHandler = (e) => {
     console.log(e.target);
   };
-
-  console.log(paceToTime(pace, 1));
 
   return (
     <tr onClick={onRowClickHandler}>

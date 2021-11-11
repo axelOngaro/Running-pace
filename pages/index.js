@@ -9,35 +9,31 @@ import { useState } from 'react';
 import Column from '../components/Column';
 
 function Home() {
-  //state
-  const [paceMinutesMin, setPaceMinutesMin] = useState(4);
-  const [paceMinutesMax, setPaceMinutesMax] = useState(5);
-  const [paceSecondsMin, setPaceSecondsMin] = useState(10);
-  const [paceSecondsMax, setPaceSecondsMax] = useState(30);
+  //new state
   const [distance, setDistance] = useState([1, 3, 21, 42]);
+  const [paceMin, setPaceMin] = useState(400);
+  const [paceMax, setPaceMax] = useState(1200);
+  const [step, setStep] = useState(11);
 
   return (
     <div>
       <Navbar />
       <PaceSelector />
       <RangeSelector
-        paceMinutesMin={paceMinutesMin}
-        paceMinutesMax={paceMinutesMax}
-        paceSecondsMin={paceSecondsMin}
-        paceSecondsMax={paceSecondsMax}
-        setPaceMinutesMin={setPaceMinutesMin}
-        setPaceMinutesMax={setPaceMinutesMax}
-        setPaceSecondsMin={setPaceSecondsMin}
-        setPaceSecondsMax={setPaceSecondsMax}
+        paceMin={paceMin}
+        paceMax={paceMax}
+        setPaceMin={setPaceMin}
+        setPaceMax={setPaceMax}
+        step={step}
+        setStep={setStep}
       />
       <Column distance={distance} setDistance={setDistance} />
       <Chart
-        paceMinutesMin={paceMinutesMin}
-        paceMinutesMax={paceMinutesMax}
-        paceSecondsMin={paceSecondsMin}
-        paceSecondsMax={paceSecondsMax}
+        paceMin={paceMin}
+        paceMax={paceMax}
         distances={distance}
         setDistance={setDistance}
+        step={step}
       />
     </div>
   );

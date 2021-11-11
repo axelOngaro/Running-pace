@@ -7,12 +7,19 @@ function Column({ distance, setDistance }) {
       alert('try again');
     } else return setDistance([...distance, distanceValue]);
   };
-  console.log(distance);
+
   return (
     <div className={styles.column}>
       <input type="number" name="distance" id="inputDistance" />
       <label htmlFor="distance">add a distance</label>
       <button onClick={distanceHandler}>+</button>
+      <label htmlFor="distance">Select a distance</label>
+      <input type="distance" list="distance-list" />
+      <datalist id="distance-list">
+        <option value="m" />
+        <option value="km" />
+        <option value="miles" />
+      </datalist>
     </div>
   );
 }

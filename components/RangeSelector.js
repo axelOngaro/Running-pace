@@ -3,10 +3,22 @@ import { paceToTime } from '../utils/functionsSec';
 
 function RangeSelector({ paceMin, paceMax, setPaceMin, setPaceMax, step, setStep }) {
   const paceMinHandler = (e) => {
-    setPaceMin(parseInt(e.target.value));
+    const newPaceMin = parseInt(e.target.value);
+    if (newPaceMin >= paceMax) {
+      setPaceMax(newPaceMin + step);
+      setPaceMin(newPaceMin);
+    } else {
+      setPaceMin(newPaceMin);
+    }
   };
   const paceMaxHandler = (e) => {
-    setPaceMax(parseInt(e.target.value));
+    const newPaceMax = parseInt(e.target.value);
+    if (newPaceMax <= paceMin) {
+      setPaceMin(newPaceMax - step);
+      setPaceMax(newPaceMax);
+    } else {
+      setPaceMax(newPaceMax);
+    }
   };
 
   const stepHandler = (e) => {
@@ -34,7 +46,7 @@ function RangeSelector({ paceMin, paceMax, setPaceMin, setPaceMax, step, setStep
               value={paceMin}
               onChange={paceMinHandler}
             />
-            <label htmlFor="min">Min pace</label>
+            <label htmlFor="min">Fastest pace</label>
             <div>{paceToTime(paceMin, 1)}</div>
           </div>
         </div>
@@ -44,12 +56,12 @@ function RangeSelector({ paceMin, paceMax, setPaceMin, setPaceMax, step, setStep
               type="range"
               name="max"
               id=""
-              min="1001"
+              min="0"
               max="2000"
               value={paceMax}
               onChange={paceMaxHandler}
             />
-            <label htmlFor="max">Max pace</label>
+            <label htmlFor="max">Slowest pace</label>
           </div>
           <div>{paceToTime(paceMax, 1)}</div>
         </div>

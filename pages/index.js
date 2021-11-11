@@ -11,8 +11,8 @@ import Column from '../components/Column';
 function Home() {
   //new state
   const [distance, setDistance] = useState([1, 3, 21, 42]);
-  const [paceMin, setPaceMin] = useState(400);
-  const [paceMax, setPaceMax] = useState(1200);
+  const [paceMin, setPaceMin] = useState(180);
+  const [paceMax, setPaceMax] = useState(370);
   const [step, setStep] = useState(11);
   const [metric, setMetric] = useState('k');
   const [currentPace, setCurrentPace] = useState(0);

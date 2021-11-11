@@ -7,8 +7,12 @@ import {
 } from '../utils/functions';
 
 function Row({ paceMin, paceSec, distances }) {
+  const onClickHandler = (e) => {
+    console.log(e.target);
+  };
   return (
     <tr>
+      <button onClick={onClickHandler}>x</button>
       <th>{roundNumber(paceToKmh(paceMin, paceSec), 2)} kph</th>
       <th>{roundNumber(paceToMphConverter(paceMin, paceSec), 2)} mph</th>
       <th>{`${paceMin}min ${paceSec} sec `}</th>

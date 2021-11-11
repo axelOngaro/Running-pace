@@ -8,6 +8,7 @@ function ChartIndexes({ distances, setDistance }) {
   };
   return (
     <tr>
+      <th></th>
       <th>km.h</th>
       <th>miles.h</th>
       <th>min.k</th>

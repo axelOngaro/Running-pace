@@ -1,6 +1,9 @@
 import styles from '../styles/PaceSelector.module.scss';
+import paceMinToPaceSec from '../utils/functionsSec';
 
-function PaceSelector() {
+function PaceSelector({ setCurrentPace, currentPace }) {
+  const currentPaceSelection = currentPace;
+
   return (
     <div className={styles.paceSelector}>
       <div className={styles.paceSelector__minutes}>
@@ -12,11 +15,10 @@ function PaceSelector() {
         <input type="number" name="seconds" />
       </div>
       <label htmlFor="metrics">Select a metric</label>
-      <input type="metrics" list="metrics-list" />
-      <datalist id="metrics-list">
-        <option value="km.min" />
-        <option value="miles.min" />
-      </datalist>
+      <select id="metrics-list">
+        <option value="km.min">km.min</option>
+        <option value="miles.min">miles.min</option>
+      </select>
     </div>
   );
 }

@@ -15,11 +15,12 @@ function Home() {
   const [paceMax, setPaceMax] = useState(1200);
   const [step, setStep] = useState(11);
   const [metric, setMetric] = useState('k');
+  const [currentPace, setCurrentPace] = useState(0);
 
   return (
     <div>
       <Navbar />
-      <PaceSelector />
+      <PaceSelector currentPace={currentPace} setCurrentPace={setCurrentPace} />
       <RangeSelector
         paceMin={paceMin}
         paceMax={paceMax}

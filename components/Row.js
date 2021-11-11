@@ -8,7 +8,7 @@ import {
 } from '../utils/functionsSec';
 
 import { useRef } from 'react';
-
+import styles from '../styles/row.module.scss';
 //PACE IS IN SECONDS
 
 function Row({ pace, distances }) {
@@ -18,7 +18,7 @@ function Row({ pace, distances }) {
   };
 
   return (
-    <tr>
+    <tr className={styles.row}>
       <button onClick={onClickHandler}>x</button>
       <th>{roundNumber(paceSecToKmh(pace), 2)} kph</th>
       <th>{roundNumber(paceSecToMphConverter(pace), 2)} mph</th>

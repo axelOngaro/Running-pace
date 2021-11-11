@@ -1,5 +1,6 @@
 import { Button as btton } from '@chakra-ui/button';
 import React from 'react';
+import styles from '../styles/ChartIndex.module.scss';
 
 function ChartIndexes({ distances, setDistance, metric }) {
   const onClickHandler = (e) => {
@@ -7,7 +8,7 @@ function ChartIndexes({ distances, setDistance, metric }) {
     setDistance(newDistances);
   };
   return (
-    <tr>
+    <tr className={styles.indexes}>
       <th></th>
       <th>km.h</th>
       <th>miles.h</th>

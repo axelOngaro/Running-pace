@@ -23,33 +23,42 @@ function RangeSelector({ paceMin, paceMax, setPaceMin, setPaceMax, step, setStep
   return (
     <div className={styles.rangeSelector}>
       <div className={styles.rangeSelector__sliders}>
-        <input
-          type="range"
-          name="min"
-          id=""
-          min="0"
-          max="1000"
-          value={paceMin}
-          onChange={paceMinHandler}
-        />
-        <label htmlFor="min">Min pace</label>
-        <div>{paceToTime(paceMin, 1)}</div>
-        <input
-          type="range"
-          name="max"
-          id=""
-          min="1001"
-          max="2000"
-          value={paceMax}
-          onChange={paceMaxHandler}
-        />
-        <label htmlFor="max">Max pace</label>
-        <div>{paceToTime(paceMax, 1)}</div>
+        <div className={styles.rangeSelector__sliders__slider}>
+          <div>
+            <input
+              type="range"
+              name="min"
+              id=""
+              min="0"
+              max="1000"
+              value={paceMin}
+              onChange={paceMinHandler}
+            />
+            <label htmlFor="min">Min pace</label>
+            <div>{paceToTime(paceMin, 1)}</div>
+          </div>
+        </div>
+        <div className={styles.rangeSelector__sliders__slider}>
+          <div>
+            <input
+              type="range"
+              name="max"
+              id=""
+              min="1001"
+              max="2000"
+              value={paceMax}
+              onChange={paceMaxHandler}
+            />
+            <label htmlFor="max">Max pace</label>
+          </div>
+          <div>{paceToTime(paceMax, 1)}</div>
+        </div>
       </div>
+
       <div className={styles.rangeSelector__inputs}>
         <div>
           <div>
-            <label htmlFor="minMinPace">minMinPace</label>
+            <label htmlFor="minMinPace">Fastest pace</label>
             <input
               type="number"
               name="minMinPace"
@@ -57,11 +66,12 @@ function RangeSelector({ paceMin, paceMax, setPaceMin, setPaceMax, step, setStep
               value={Math.floor(paceMin / 60)}
               readOnly
             />
-            <label htmlFor="minSecPace">minSecPace</label>
+            <p> : </p>
             <input type="number" name="minSecPace" id="" value={paceMin % 60} readOnly />
+            <p>km</p>
           </div>
           <div>
-            <label htmlFor="maxMinPace">maxMinPace</label>
+            <label htmlFor="maxMinPace">Slowest Pace</label>
             <input
               type="number"
               name="maxMinPace"
@@ -69,16 +79,17 @@ function RangeSelector({ paceMin, paceMax, setPaceMin, setPaceMax, step, setStep
               value={Math.floor(paceMax / 60)}
               readOnly
             />
-            <label htmlFor="maxSecPace">maxSecPace</label>
+            <p> : </p>
             <input type="number" name="maxSecPace" id="" value={paceMax % 60} readOnly />
-          </div>
-          <div>
-            <button onClick={stepClickHandlerMinus}>-</button>
-            <input type="number" name="step" value={step} onChange={stepHandler}></input>
-            <button onClick={stepClickHandlerPlus}>+</button>
-            <label htmlFor="step">Step</label>
+            <p>km</p>
           </div>
         </div>
+      </div>
+      <div className={styles.stepSelector}>
+        <button onClick={stepClickHandlerMinus}>-</button>
+        <input type="number" name="step" value={step} onChange={stepHandler}></input>
+        <button onClick={stepClickHandlerPlus}>+</button>
+        <label htmlFor="step">Step (in sec)</label>
       </div>
     </div>
   );

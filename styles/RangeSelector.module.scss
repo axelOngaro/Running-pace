@@ -1,34 +1,67 @@
 .rangeSelector {
   min-height: 10vh;
   width: 100%;
-  background-color: red;
-  color: white;
   display: flex;
-  // flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   padding: 1em 0;
-  button {
-    border: solid 1px black;
-    background-color: white;
-    height: 1em;
-    width: 1em;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  p {
+    display: inline-block;
   }
+  input {
+    background-color: rgb(230, 230, 230);
+    width: 2em;
+    height: 2em;
+    margin: 1em;
+  }
+  label {
+    margin: 1em;
+    font-weight: bold;
+  }
+
   &__sliders {
     padding: 2em 0;
+    display: flex;
+    width: 40%;
+    justify-content: center;
     input {
       margin: 0 1em;
+      width: 9em;
+    }
+    &__slider {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
   }
   &__inputs {
+    padding: 2em 0;
+    display: flex;
+    justify-content: center;
+    width: 33%;
     input {
-      margin: 0 0.5em;
+      margin: 1em 0.5em;
       width: 3em;
-      color: black;
+      border-radius: 0.3em;
     }
+  }
+}
+
+.stepSelector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33%;
+
+  button {
+    background-color: rgb(230, 230, 230);
+    height: 2em;
+    width: 2em;
+    color: black;
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
   }
 }

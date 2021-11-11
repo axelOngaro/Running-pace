@@ -1,16 +1,23 @@
 .paceSelector {
   height: 10vh;
   width: 100%;
-  background-color: yellow;
-  color: red;
   display: flex;
   justify-content: center;
   align-items: center;
+  label {
+    padding: 0 1em;
+    font-weight: bold;
+  }
   &__minutes,
   &__seconds {
     padding: 1em 1em;
-    label {
-      padding: 0 1em;
+
+    input {
+      background-color: rgb(230, 230, 230);
+      border-radius: 0.3em;
     }
+  }
+  select {
+    margin: 0 1em;
   }
 }

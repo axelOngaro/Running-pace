@@ -30,6 +30,10 @@ export const paceToTime = (pace, distance) => {
   } else if (totalTimeSec >= 60) {
     const minutes = Math.floor(totalTimeSec / 60);
     const seconds = Math.floor(totalTimeSec - minutes * 60);
-    return `${minutes} min:${seconds} sec`;
+    return `${minutes} min: ${seconds} sec`;
   } else return totalTimeSec;
+};
+
+export const paceMinToPaceSec = (paceMinutes, paceSeconds) => {
+  return paceMinutes * 60 + paceSeconds;
 };

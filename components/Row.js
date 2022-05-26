@@ -18,7 +18,7 @@ function Row({ pace, distances }) {
   };
 
   return (
-    <tr className={styles.row}>
+    <tr className={styles.row} id={pace}>
       <button onClick={onClickHandler}>x</button>
       <th>{roundNumber(paceSecToKmh(pace), 2)} kph</th>
       <th>{roundNumber(paceSecToMphConverter(pace), 2)} mph</th>

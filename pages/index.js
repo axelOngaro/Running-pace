@@ -16,11 +16,19 @@ function Home() {
   const [step, setStep] = useState(11);
   const [metric, setMetric] = useState('k');
   const [currentPace, setCurrentPace] = useState(0);
-
+  const [paceMinutes, setPaceMinutes] = useState(3);
+  const [paceSeconds, setPaceSeconds] = useState(0);
   return (
     <div>
       <Navbar />
-      <PaceSelector currentPace={currentPace} setCurrentPace={setCurrentPace} />
+      <PaceSelector
+        currentPace={currentPace}
+        setCurrentPace={setCurrentPace}
+        paceMinutes={paceMinutes}
+        paceSeconds={paceSeconds}
+        setPaceMinutes={setPaceMinutes}
+        setPaceSeconds={setPaceSeconds}
+      />
       <RangeSelector
         paceMin={paceMin}
         paceMax={paceMax}

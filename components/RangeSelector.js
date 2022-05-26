@@ -41,7 +41,7 @@ function RangeSelector({ paceMin, paceMax, setPaceMin, setPaceMax, step, setStep
               type="range"
               name="min"
               id=""
-              min="0"
+              min="120"
               max="1000"
               value={paceMin}
               onChange={paceMinHandler}
@@ -56,8 +56,8 @@ function RangeSelector({ paceMin, paceMax, setPaceMin, setPaceMax, step, setStep
               type="range"
               name="max"
               id=""
-              min="0"
-              max="2000"
+              min="120"
+              max="1000"
               value={paceMax}
               onChange={paceMaxHandler}
             />
